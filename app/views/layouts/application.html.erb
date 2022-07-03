@@ -12,24 +12,41 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-       <li>
-         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-       </li>
-      <% else %>
-       <li>
-         <%= link_to "Home", new_user_registration_path %>
-       </li>
-       <li>
-         <%= link_to "About", new_user_registration_path %>
-       </li>
-       <li>
-         <%= link_to "Sign up", new_user_registration_path %>
-       </li>
-       <li>
-         <%= link_to "Log in", new_user_session_path %>
-       </li>
-      <% end %>
+      <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark">
+          <div class="nav navbar-left">
+            <a class="navbar-brand" href="/"><span>Bookers</span></a>
+          </div>
+          <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+           <li>
+             <%= link_to "Home", users_path(@user) %>
+           </li>
+           <li>
+             <%= link_to "User", users_path %>
+           </li>
+           <li>
+             <%= link_to "Books", books_path %>
+           </li>
+           <li>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+           </li>
+          <% else %>
+           <li>
+            <%= link_to "Home", "/" %>
+           </li>
+           <li>
+            <%= link_to "About", home_about_path %>
+           </li>
+           <li>
+            <%= link_to "Sign up", new_user_registration_path %>
+           </li>
+           <li>
+            <%= link_to "Log in", new_user_session_path %>
+           </li>
+          <% end %>
+          </ul>
+        </nav>
     </header>
     <%= yield %>
   </body>
