@@ -1,6 +1,6 @@
 <div class ="col-md-3">
   <h2>User info</h2>
-    <%= attachment_image_tag ＠user,:profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+    <%= image_tag user.get_profile_image(100,100) %>
   <table class ="table">
     <tbody>
       <tr>
@@ -20,7 +20,7 @@
   </div>
 
   <h2>New book</h2>
-    <%= form_with model:＠book, url:books_path, local:true do |f| %>
+    <%= form_with model:book, url:books_path, local:true do |f| %>
     <p>Title</p>
     <%= f.text_field :title %>
     <p>Opinion</p>
