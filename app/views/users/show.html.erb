@@ -39,6 +39,7 @@
       <tabel class="table table-hover table-inverse">
         <thead>
           <tr>
+            <th></th>
             <th>Title</th>
             <th>Opinion</th>
             <th colspan="3"></th>
@@ -46,6 +47,8 @@
         </thead>
         <tbody>
          <% @books.each do |book| %>
+           <%= link_to user_path(@user.id) do %>
+         <% end %>
           <tr>
             <td><%= image_tag @user.get_profile_image(100,100) %></td>
             <td><%= link_to book.title, book_path(book.id) %></td>
@@ -56,4 +59,4 @@
       </tabel>
     </div>
 
-  </div>
+</div>
