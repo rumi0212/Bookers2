@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_current_user, {only: [:edit,:update,:destroy]}
 
   def new
      @book = Book.new
@@ -54,7 +56,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
   def user_params
     params.require(:user).permit(:name,:profile_image,:introduction)
   end
