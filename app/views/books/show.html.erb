@@ -1,9 +1,13 @@
-<%= render 'books/list', book: @book,user: @user %>
+<p id="notice"></p>
 
-<div class="col-md-8 offset-md-1">
-  <h2>Book detail</h2>
-  <table class="table">
-    <tbody>
+<div class="container px-5 px-sm-0">
+
+  <%= render 'books/list', book: @book,user: @user %>
+
+  <div class="col-md-8 offset-md-1">
+    <h2>Book detail</h2>
+    <table class="table">
+      <tbody>
         <tr>
           <td><%= image_tag @user.get_profile_image(100,100) %></td>
           <td><%= link_to @book.title %></td>
@@ -13,4 +17,8 @@
           <td><%= link_to "destroy", book_path(@book.id), class:"btn-sm btn-danger destroy(@book.id)", method: :delete,data: {confirm: "本当に削しますか？"} %></td>
           <% end %>
         </tr>
-    </tbody>
+      </tbody>
+    </table>
+  </div>
+
+</div>
